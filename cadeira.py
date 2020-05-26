@@ -93,7 +93,6 @@ class Cadeira:
         self.center_x_rotate_chair -= 1
 
     def criarCadeira(self):
-        glTranslatef(0.0, 0.0, -14.0)
 
         glRotatef(self.zy_rotate_chair, 1.0, 0.0, 0.0)
         glRotatef(self.center_x_rotate_chair, 0.0, 0.0, 1.0)
@@ -333,4 +332,6 @@ class Cadeira:
         glVertex3fv([1.8 + self.x_support_chair_back_front, 3.5 + self.y_support_chair_back_front, -1.8])
         glVertex3fv([1.8 + self.x_support_chair_back_front, 3.5 + self.y_support_chair_back_front, -2.0])
 
+
+        print(self.x_table_chair)
         glEnd()

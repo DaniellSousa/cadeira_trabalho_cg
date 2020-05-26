@@ -124,25 +124,19 @@ def main():
     glMatrixMode(GL_MODELVIEW)
     glLoadIdentity()
 
-    gluPerspective(45, (display[0] / display[1]), 0.5, 20.0)
+    gluPerspective(45, (display[0] / display[1]), 0.1, 20.0)
 
     # eye = (0, 0, 10)
     eye = np.zeros(3)
-    eye[0] = 1.6
-    eye[1] = 1.6
-    eye[2] = 0
-    # eye[1] = 10
+    eye[2] = 10
 
     # target = (0, 0, 0)
     target = np.zeros(3)
-    target[0] = 1.6
-    target[1] = 1.6
-    target[2] = 0
 
     # up = (1, 0, 0)
     up = np.zeros(3)
     up[0] = 0
-    up[1] = 0
+    up[1] = 1
     up[2] = 0
 
     # up[1] = math.sin(up_angle)
@@ -229,18 +223,20 @@ def main():
         # Habilitar teste de profundidade
         glEnable(GL_DEPTH_TEST)
 
-        # glPushMatrix()
-        #
-        # gluLookAt(eye[0], eye[1], eye[2],
-        #           target[0], target[1], target[2],
-        #           up[0], up[1], up[2])
-        #
+        glPushMatrix()
+
+        gluLookAt(eye[0], eye[1], eye[2],
+                  target[0], target[1], target[2],
+                  up[0], up[1], up[2])
+
+
         glPushMatrix()
 
         cadeira1.criarCadeira()
 
         glPopMatrix()
-        # glPopMatrix()
+
+        glPopMatrix()
 
         pygame.display.flip()
         pygame.time.wait(10)
